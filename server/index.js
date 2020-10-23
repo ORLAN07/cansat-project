@@ -10,7 +10,7 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     next();
 });
--+
+
 app.get('/api/cansat', (req, res) => {
     res.send(dataFile.getMiners());
 });
