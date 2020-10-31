@@ -1,0 +1,6 @@
+export enum VariableEnum {
+  NONE,
+  ALTITUDE,
+  ATMOSPHERICPRESSURE,
+  TEMPERATURE
+}

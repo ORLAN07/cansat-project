@@ -1,0 +1,33 @@
+<div>
+  <button (click)="toggle()">
+    Start/Pause
+  </button>
+</div>
+<div>
+  <button (click)="filter(VariableEnum.ALTITUDE)">
+    Altitud
+  </button>
+</div>
+<div>
+  <button (click)="filter(VariableEnum.TEMPERATURE)">
+    Temperatura
+  </button>
+</div>
+<div>
+  <button (click)="filter(VariableEnum.ATMOSPHERICPRESSURE)">
+    presion atmosferica
+  </button>
+</div>
+<div *ngIf="variableEnum === VariableEnum.NONE">
+  <app-chart-real-time [incomingData]="serverData"></app-chart-real-time>
+</div>
+<div *ngIf="variableEnum === VariableEnum.TEMPERATURE">
+  <app-chart-real-time [incomingData]="serverData"></app-chart-real-time>
+</div>
+<div *ngIf="variableEnum === VariableEnum.ATMOSPHERICPRESSURE">
+  <app-chart-real-time [incomingData]="serverData"></app-chart-real-time>
+</div>
+<div *ngIf="variableEnum === VariableEnum.ALTITUDE">
+  <app-chart-real-time [incomingData]="serverData"></app-chart-real-time>
+</div>
+
