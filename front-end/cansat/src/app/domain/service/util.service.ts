@@ -27,7 +27,7 @@ export class UtilService {
         });
 
         socket.on('message', ( minerLastValue ) => {
-          console.log('WS: Message');
+          console.log('WS: Message>>>', minerLastValue);
           observer.next( minerLastValue );
         });
 

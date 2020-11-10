@@ -1,7 +1,8 @@
 const minersData = {
-    altitude: { values: [] },
-    temperature: { values: [] },
-    atmosphericPressure: { values: [] }
+    altitude: {values: []},
+    temperature: {values: []},
+    atmosphericPressure: {values: []},
+    vibration: {values: []}
 };
 
 const updateValues = () => {
@@ -16,6 +17,38 @@ const updateValues = () => {
             speed: newv
         });
     });
+}
+
+const addNewValueAltitude = (x, y) => {
+    const now = new Date().getTime();
+    minersData.altitude.values = {date: now, speed: y};
+    minersData.temperature.values = {date: 0, speed: 0};
+    minersData.atmosphericPressure.values = {date: 0, speed: 0};
+    return minersData;
+}
+
+const addNewValueVibration = (x, y) => {
+    const now = new Date().getTime();
+    minersData.altitude.values = {date: now, speed: y};
+    minersData.temperature.values = {date: 0, speed: 0};
+    minersData.atmosphericPressure.values = {date: 0, speed: 0};
+    return minersData;
+}
+
+const addNewValueTemperature = (x, y) => {
+    const now = new Date().getTime();
+    minersData.altitude.values = {date: 0, speed: 0};
+    minersData.temperature.values = {date: now, speed: y};
+    minersData.atmosphericPressure.values = {date: 0, speed: 0};
+    return minersData;
+}
+
+const addNewValueAtmosphericPressure = (x, y) => {
+    const now = new Date().getTime();
+    minersData.altitude.values = {date: 0, speed: 0};
+    minersData.temperature.values = {date: 0, speed: 0};
+    minersData.atmosphericPressure.values = {date: now, speed: y};
+    return minersData;
 }
 
 const getLatest = () => {
@@ -42,5 +75,9 @@ module.exports = {
     updateValues,
     getLatest,
     getMiners,
-    validateMinerOneLength
+    validateMinerOneLength,
+    addNewValueAltitude,
+    addNewValueTemperature,
+    addNewValueAtmosphericPressure,
+    addNewValueVibration
 }

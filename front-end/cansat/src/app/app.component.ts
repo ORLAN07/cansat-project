@@ -3,6 +3,7 @@ import {Subscription} from "rxjs";
 import {UtilService} from "./domain/service/util.service";
 import {delay, retryWhen, tap} from "rxjs/operators";
 import {VariableEnum} from "./domain/model/variable.enum";
+import CanvasJS from '../assets/js/canvasjs';
 
 @Component({
   selector: 'app-root',
@@ -20,10 +21,35 @@ export class AppComponent {
   constructor(private utilService: UtilService) { }
 
   ngOnInit(): void {
+    this.load();
     this.init();
   }
 
-  loadThree(): void {
+  load(): void {
+    let dataPoints = [];
+    let y = 0;
+    for ( var i = 0; i < 10000; i++ ) {
+      y += Math.round(5 + Math.random() * (-5 - 5));
+      dataPoints.push({ y: y});
+    }
+    let chart = new CanvasJS.Chart("chartContainer", {
+      zoomEnabled: true,
+      animationEnabled: true,
+      exportEnabled: true,
+      title: {
+        text: "Vibración del dispositivo"
+      },
+      subtitles:[{
+        text: ""
+      }],
+      data: [
+        {
+          type: "line",
+          dataPoints: dataPoints
+        }]
+    });
+
+    chart.render();
   }
 
   init() {

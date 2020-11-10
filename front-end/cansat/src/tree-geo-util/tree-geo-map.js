@@ -48,3 +48,5 @@ export default function tree1() {
   })();
 }
 
+tree1();
+
