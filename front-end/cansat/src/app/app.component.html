@@ -1,35 +1,42 @@
-<div>
-  <button (click)="toggle()">
-    Start/Pause
-  </button>
-</div>
-<div>
-  <button (click)="filter(VariableEnum.ALTITUDE)">
-    Altitud
-  </button>
-</div>
-<div>
-  <button (click)="filter(VariableEnum.TEMPERATURE)">
-    Temperatura
-  </button>
-</div>
-<div>
-  <button (click)="filter(VariableEnum.ATMOSPHERICPRESSURE)">
-    presion atmosferica
-  </button>
-</div>
-<div *ngIf="variableEnum === VariableEnum.NONE">
-  <app-chart-real-time [incomingData]="serverData"></app-chart-real-time>
-</div>
-<div *ngIf="variableEnum === VariableEnum.TEMPERATURE">
-  <app-chart-real-time [incomingData]="serverData"></app-chart-real-time>
-</div>
-<div *ngIf="variableEnum === VariableEnum.ATMOSPHERICPRESSURE">
-  <app-chart-real-time [incomingData]="serverData"></app-chart-real-time>
-</div>
-<div *ngIf="variableEnum === VariableEnum.ALTITUDE">
-  <app-chart-real-time [incomingData]="serverData"></app-chart-real-time>
+<div class="d-flex align-items-center justify-content-center mb-5">
+  <div class="d-inline-block mx-2">
+    <button (click)="toggle()" class="btn btn-primary">
+      Start / Pause
+    </button>
+  </div>
+  <div class="d-inline-block mx-2">
+    <button (click)="filter(VariableEnum.ALTITUDE)"  class="btn btn-danger">
+      Altitud
+    </button>
+  </div>
+  <div class="d-inline-block mx-2">
+    <button (click)="filter(VariableEnum.TEMPERATURE)"  class="btn btn-warning"> 
+      Temperatura
+    </button>
+  </div>
+  <div class="d-inline-block mx-2">
+    <button (click)="filter(VariableEnum.ATMOSPHERICPRESSURE)"  class="btn btn-info">
+      presion atmosferica
+    </button>
+  </div>
 </div>
 
-<div id="chartContainer" style="height: 370px; width: 100%; margin-left:auto;margin-right:auto;"></div>
+<div class="ml-5">
+  <div *ngIf="variableEnum === VariableEnum.NONE">
+    <app-chart-real-time [incomingData]="serverData"></app-chart-real-time>
+  </div>
+  <div *ngIf="variableEnum === VariableEnum.TEMPERATURE">
+    <app-chart-real-time [incomingData]="serverData"></app-chart-real-time>
+  </div>
+  <div *ngIf="variableEnum === VariableEnum.ATMOSPHERICPRESSURE">
+    <app-chart-real-time [incomingData]="serverData"></app-chart-real-time>
+  </div>
+  <div *ngIf="variableEnum === VariableEnum.ALTITUDE">
+    <app-chart-real-time [incomingData]="serverData"></app-chart-real-time>
+  </div>
+</div>
+
+<div class="d-flex justify-content-center align-items-center">
+  <div id="chartContainer" style="height: 370px; width: 95%; margin-left:auto;margin-right:auto;" class="my-4"></div>
+</div>
 
